@@ -1,0 +1,30 @@
+<div>
+  <h1>Tree manager app</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Species Name</th>
+        <th scope="col">Family</th>
+        <th scope="col">Order</th>
+        <th scope="col">Class</th>
+        <th scope="col">Species Code</th>
+        <th scope="col">Leaf Type</th>
+        <th scope="col">Height at Maturity</th>
+        <th scope="col">ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tree of trees">
+        <th scope="row">{{ tree.speciesName }}</th>
+        <td>{{ tree.family }}</td>
+        <td>{{ tree.class }}</td>
+        <td>{{ tree.order }}</td>
+        <td>{{ tree.speciesCode }}</td>
+        <td>{{ tree.leafType }}</td>
+        <td>{{ tree.heightAtMaturity }}</td>
+        <td>{{ tree.id }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

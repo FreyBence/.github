@@ -1,0 +1,34 @@
+<nav>
+    <button mat-stroked-button routerLink="/home">
+        <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home"></mat-icon>
+        Home
+    </button>
+    
+    <button
+        mat-stroked-button
+        routerLink="/register"
+        *ngIf="!this.api.isLoggedIn()"
+    >
+        Register
+    </button>
+
+    <button
+        mat-flat-button
+        color="accent"
+        routerLink="/login"
+        *ngIf="!this.api.isLoggedIn()"
+    >
+        <mat-icon aria-hidden="false" aria-label="" fontIcon="login"></mat-icon>
+        Login
+    </button>
+
+    <button
+        mat-stroked-button
+        color="accent"
+        routerLink="/logout"
+        *ngIf="this.api.isLoggedIn()"
+    >
+        <mat-icon aria-hidden="false" aria-label="" fontIcon="login"></mat-icon>
+        Logout
+    </button>
+</nav>
