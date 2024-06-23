@@ -29,6 +29,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { AddTreeComponent } from './add-tree/add-tree.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     LogoutComponent,
     NavigationComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddTreeComponent
   ],
   imports: [
     BrowserModule,
