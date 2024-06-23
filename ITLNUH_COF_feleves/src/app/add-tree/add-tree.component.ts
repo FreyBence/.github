@@ -32,10 +32,12 @@ export class AddTreeComponent {
       this.http.post<TreeModel>('http://localhost:5062/Tree/', newTree)
       .subscribe(
         (success) => {
+          console.log(`Tree deleted successfuly`);
           this.snackBar.open("Create was successful!", "Close", { duration: 5000 })
           this.treeForm.reset()
         },
         (error) => {
+          console.log(`Error creating tree`);
           this.snackBar.open("Error occured, please try again.", "Close", { duration: 5000 })
         }
       )

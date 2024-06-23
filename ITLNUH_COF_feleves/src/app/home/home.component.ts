@@ -21,9 +21,10 @@ export class HomeComponent implements OnInit {
     this.http.get<TreeModel[]>('http://localhost:5062/Tree/').subscribe(
       (response: TreeModel[]) => {
         this.trees = response;
+        console.log('Datas loaded successfuly:', response);
       },
       (error) => {
-        console.error('Hiba történt az adatok lekérésekor:', error);
+        console.error('Error loading datas:', error);
       }
     );
   }
