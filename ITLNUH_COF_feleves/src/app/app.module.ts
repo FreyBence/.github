@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AddTreeComponent } from './add-tree/add-tree.component';
+import { DeleteTreeComponent } from './delete-tree/delete-tree.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AddTreeComponent } from './add-tree/add-tree.component';
     LogoutComponent,
     NavigationComponent,
     RegisterComponent,
-    AddTreeComponent
+    AddTreeComponent,
+    DeleteTreeComponent
   ],
   imports: [
     BrowserModule,
