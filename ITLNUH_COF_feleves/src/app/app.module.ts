@@ -60,7 +60,6 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
   ],
   providers: [
-    provideClientHydration(),
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
