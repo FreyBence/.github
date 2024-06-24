@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TreeModel } from '../_models/treemodel';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-tree',
@@ -12,7 +13,7 @@ export class DeleteTreeComponent implements OnInit {
   trees: TreeModel[] = [];
   snackBar: MatSnackBar;
 
-  constructor(private http: HttpClient, snackBar: MatSnackBar) {
+  constructor(private http: HttpClient, private router: Router, snackBar: MatSnackBar) {
     this.snackBar = snackBar
   }
 
@@ -46,5 +47,9 @@ export class DeleteTreeComponent implements OnInit {
           this.snackBar.open("Error occured, please try again.", "Close", { duration: 5000 })
         }
       );
+  }
+
+  updateTree(treeId: string): void {
+    this.router.navigate(['/update', treeId]);
   }
 }

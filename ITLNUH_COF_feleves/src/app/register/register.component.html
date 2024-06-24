@@ -16,9 +16,11 @@
     <input 
         matInput
         type="password"
-        [(ngModel)]="this.registerModel.password">
+        [(ngModel)]="this.registerModel.password"
+        [formControl]="this.password">
     <mat-icon matSuffix>lock</mat-icon>
     <mat-hint>Requested password</mat-hint>
+    <mat-error *ngIf="this.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
 </mat-form-field>
 
 <mat-form-field appearance="outline">
