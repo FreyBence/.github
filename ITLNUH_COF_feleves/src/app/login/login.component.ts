@@ -29,16 +29,17 @@ export class LoginComponent {
 
   public sendLoginCredentials() : void {
     this.http
-    .post<TokenModel>("https://practiceapi.nikprog.hu/Auth", this.loginModel)
+    .post<TokenModel>("http://localhost:5062/Auth", this.loginModel)
     .subscribe(
       (success) => {
-        localStorage.setItem('nikprog-practiceapi-token', success.token)
-        localStorage.setItem('nikprog-practiceapi-token-expiration', success.expiration.toString())
+        localStorage.setItem('cos-practiceapi-token', success.token)
+        localStorage.setItem('cos-practiceapi-token-expiration', success.expiration.toString())
         console.log(success)
         this.router.navigate(['/home'])
       },
       (error) => {
-        this.snackBar.open(error.message, "Close", { duration: 5000 })
+        console.log("Login failed", error)
+        this.snackBar.open("Error occourd try later and check for valid email and password", "Close", { duration: 5000 })
       })
   }
 

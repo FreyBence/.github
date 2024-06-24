@@ -31,6 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AddTreeComponent } from './add-tree/add-tree.component';
 import { DeleteTreeComponent } from './delete-tree/delete-tree.component';
+import { UpdateTreeComponent } from './update-tree/update-tree.component';
+import { TreeStatementsComponent } from './tree-statements/tree-statements.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { DeleteTreeComponent } from './delete-tree/delete-tree.component';
     NavigationComponent,
     RegisterComponent,
     AddTreeComponent,
-    DeleteTreeComponent
+    DeleteTreeComponent,
+    UpdateTreeComponent,
+    TreeStatementsComponent
   ],
   imports: [
     BrowserModule,

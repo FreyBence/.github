@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    console.log(this.trees)
   }
 
   getData(): void {

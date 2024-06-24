@@ -15,8 +15,8 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     // reset and delete cookies
-    localStorage.setItem('nikprog-practiceapi-token', '')
-    localStorage.setItem('nikprog-practiceapi-token-expiration', '')
+    localStorage.setItem('cos-practiceapi-token', '')
+    localStorage.setItem('cos-practiceapi-token-expiration', '')
     localStorage.clear()
     
     this.router.navigate(['/home'])
