@@ -1,0 +1,32 @@
+<div>
+  <h1>Update/Delete Tree</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Species Name</th>
+        <th scope="col">Species Code</th>
+        <th scope="col">ID</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tree of trees">
+        <th scope="row">{{ tree.speciesName }}</th>
+        <td>{{ tree.speciesCode }}</td>
+        <td>{{ tree.id }}</td>
+        <td>
+          <button mat-button color="warn" (click)="deleteTree(tree.id)">
+            Delete
+          </button>
+        </td>
+        <td>
+          <button mat-button color="accent" (click)="updateTree(tree.id)">
+            Updaate
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -14,6 +14,7 @@ export class RegisterComponent {
   router: Router
   http: HttpClient
   email: FormControl
+  password: FormControl
   snackBar: MatSnackBar
   registerModel: RegisterModel
   acceptTermsAndConditions: boolean
@@ -25,6 +26,11 @@ export class RegisterComponent {
     this.acceptTermsAndConditions = false
     this.registerModel = new RegisterModel()
     this.email = new FormControl('', [Validators.required, Validators.email])
+    this.password = new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      this.passwordComplexityValidator
+    ])
   }
 
   public getEmailErrorMessage() : string {
@@ -35,8 +41,33 @@ export class RegisterComponent {
     return this.email.hasError('email') ? 'Not a valid email!' : '';
   }
 
+  public getPasswordErrorMessage(): string {
+    if (this.password.hasError('required')) {
+      return 'You must enter a password!';
+    }
+    if (this.password.hasError('minlength')) {
+      const requiredLength = this.password.errors?.['minlength']?.requiredLength
+      return `Password must be at least ${requiredLength} characters long!`;
+    }
+    if (this.password.hasError('passwordComplexity')) {
+      return 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character!';
+    }
+    return '';
+  }
+
+  private passwordComplexityValidator(control: any) {
+    const password = control.value;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/;
+    console.log(regex.test(password))
+    if (regex.test(password)) {
+      return null;
+    } else {
+      return { passwordComplexity: true };
+    }
+  }
+
   public sendRegisterCredentials() : void {
-    this.http.put("https://practiceapi.nikprog.hu/Auth", this.registerModel)
+    this.http.put("http://localhost:5062/Auth", this.registerModel)
     .subscribe(
       (success) => {
         this.snackBar
@@ -47,6 +78,7 @@ export class RegisterComponent {
         })
       },
       (error) => {
+        console.log("Registration failed", error)
         this.snackBar.open("An error happened, please ty again.", "Close", { duration: 5000 })
       })
   }
